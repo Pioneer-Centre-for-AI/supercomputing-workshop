@@ -1,4 +1,9 @@
 ---
+import PCAI_Logo from '../assets/logos/PCAI_Horizontal_RGB.svg';
+import DTU_Logo from '../assets/logos/DTU_Red_RGB.svg';
+import DCAI_Logo from '../assets/logos/DCAI.svg';
+import UCPH_Logo from '../assets/logos/UCPH.png';
+
 const collaborations = [
   {
     name: "Pioneer Centre for Artificial Intelligence",
@@ -10,7 +15,7 @@ const collaborations = [
     `,
     backgroundColor: "bg-white",
     textColor: "text-gray-800",
-    logo: "PCAI_Horizontal_RGB.svg",
+    logo: PCAI_Logo,
     website: "https://hpc.aicentre.dk/"
   },
   {
@@ -29,20 +34,20 @@ const collaborations = [
   `,
   backgroundColor: "bg-white",
   textColor: "text-gray-800",
-      logo: "DTU_Red_RGB.svg",
+      logo: DTU_Logo,
     website: "https://www.hpc.dtu.dk/"
 },
   {
     name: "Danish Centre for AI Innovation",
     shortName: "DCAI",
     description: `
-      DCAI is home to Gefion, Denmark’s first supercomputer optimised for large-scale projects using AI.
+      DCAI is home to Gefion, Denmark's first supercomputer optimised for large-scale projects using AI.
       
       Gefion is a large-scale NVIDIA DGX SuperPOD. It comprises 191 NVIDIA DGX H100 systems for a total of 1,528 NVIDIA H100 Tensor Core GPUs.
     `,
     backgroundColor: "bg-white",
     textColor: "text-gray-800",
-    logo: "DCAI.svg",
+    logo: DCAI_Logo,
     website: "https://dcai.dk/gefion"
   },
   // {
@@ -55,7 +60,7 @@ const collaborations = [
   //   `,
   //   backgroundColor: "bg-white",
   //   textColor: "text-gray-800",
-  //   logo: "UCPH.png",
+  //   logo: UCPH_Logo,
   //   website: "https://di.ku.dk/english"
   // }
 ];
@@ -82,7 +87,7 @@ const collaborations = [
                     ${collaboration.textColor}
                   `}>
                     <img 
-                      src={`/src/assets/logos/${collaboration.logo}`} 
+                      src={collaboration.logo.src} 
                       alt={collaboration.name}
                       class="img-fluid max-h-14 w-auto object-contain"
                     />
@@ -97,7 +102,7 @@ const collaborations = [
                   ${collaboration.textColor}
                 `}>
                   <img 
-                    src={`/src/assets/logos/${collaboration.logo}`} 
+                    src={collaboration.logo.src} 
                     alt={collaboration.name}
                     class="img-fluid max-h-14 w-auto object-contain"
                   />
