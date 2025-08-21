@@ -15,13 +15,13 @@ const { currentPage = 'home' } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/supercomputing-workshop/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Supercomputer Workshop</title>
+		<title>Supercomputing Workshop</title>
 	</head>
 	<body>
-		<div class="min-h-screen bg-gray-900 p-8">
-			<div class="max-w-5xl mx-auto bg-white border border-gray-200 shadow-lg">
+		<div class="min-h-screen bg-gray-900 p-0 sm:p-4 md:p-6 lg:p-8">
+			<div class="w-full max-w-5xl mx-auto bg-white border border-gray-200 shadow-lg">
 				<Announcement />
 				<Header currentPage={currentPage} />
 				<slot />
