@@ -1,0 +1,122 @@
+---
+const program = [
+  {
+    time: "09:00 – 09:15",
+    session: "Welcome and Introduction",
+    speakers: "Nicki Skafte Detlefsen"
+  },
+  {
+    time: "09:15 – 09:30",
+    session: "Gefion: System Presentation",
+    speakers: "Ulrik Nicolai de Lichtenberg"
+  },
+  {
+    time: "09:30 – 09:45",
+    session: "Use Case from Gefion",
+    speakers: "Frederik Warburg"
+  },
+  {
+    time: "09:45 – 10:00",
+    session: "Supercomputer B: System Presentation",
+    speakers: "System Representative"
+  },
+  {
+    time: "10:00 – 10:15",
+    session: "Use Case from Supercomputer B",
+    speakers: "Researcher"
+  },
+  {
+    time: "10:15 – 10:30",
+    session: "Supercomputer C: System Presentation",
+    speakers: "System Representative"
+  },
+  {
+    time: "10:30 – 10:45",
+    session: "Use Case from Supercomputer C",
+    speakers: "Researcher"
+  },
+  {
+    time: "10:45 – 11:00",
+    session: "Supercomputer D: System Presentation",
+    speakers: "System Representative"
+  },
+  {
+    time: "11:00 – 11:15",
+    session: "Use Case from Supercomputer D",
+    speakers: "Researcher"
+  },
+  {
+    time: "11:15 – 11:30",
+    session: "Supercomputer E: System Presentation",
+    speakers: "System Representative"
+  },
+  {
+    time: "11:30 – 11:45",
+    session: "Use Case from Supercomputer E",
+    speakers: "Researcher"
+  },
+  {
+    time: "11:45 – 12:45",
+    session: "Lunch Break",
+    speakers: "—"
+  },
+  {
+    time: "12:45 – 13:30",
+    session: "Group Discussions (in breakout groups)",
+    speakers: "All participants"
+  },
+  {
+    time: "13:30 – 14:00",
+    session: "Plenum: Collection of Feedback",
+    speakers: "Moderator"
+  },
+  {
+    time: "14:00 – 15:00",
+    session: "Panel Discussion: Future of Supercomputing in Europe",
+    speakers: "Panelists + Moderator"
+  },
+  {
+    time: "15:00 – 15:15",
+    session: "Closing Remarks",
+    speakers: "Workshop Chair"
+  }
+];
+---
+
+<section id="program" class="py-16 px-6 scroll-mt-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+        Preliminary Program
+    </h2>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300 bg-white shadow-lg rounded-lg overflow-hidden">
+        <thead>
+          <tr class="bg-gray-700 text-white">
+            <th class="border border-gray-300 px-4 py-3 text-left font-bold text-white">Time</th>
+            <th class="border border-gray-300 px-4 py-3 text-left font-bold text-white">Session</th>
+            <th class="border border-gray-300 px-4 py-3 text-left font-bold text-white">Speaker(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {program.map((item, index) => (
+            <tr class={index % 2 === 0 ? 'bg-white hover:bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}>
+              <td class="border border-gray-300 px-4 py-3 text-sm font-medium text-gray-900">
+                {item.time}
+              </td>
+              <td class="border border-gray-300 px-4 py-3 text-sm text-gray-700">
+                {item.session.includes("Future of Supercomputing in Europe") 
+                  ? item.session.replace("Future of Supercomputing in Europe", "<em>Future of Supercomputing in Europe</em>")
+                  : item.session
+                }
+              </td>
+              <td class="border border-gray-300 px-4 py-3 text-sm text-gray-700">
+                {item.speakers}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

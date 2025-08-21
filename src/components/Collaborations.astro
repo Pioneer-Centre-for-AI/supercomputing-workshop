@@ -1,0 +1,132 @@
+---
+const collaborations = [
+  {
+    name: "Pioneer Centre for Artificial Intelligence",
+    shortName: "PCAI/P1",
+    description: `
+      The Pioneer Centre for Artificial Intelligence (PCAI) is a research center focused on advancing artificial intelligence technologies.
+      
+      Conducting cutting-edge research in machine learning, computer vision, and AI ethics. At PCAI, researchers are presented with opportunities to collaborate on innovative projects.
+    `,
+    backgroundColor: "bg-white",
+    textColor: "text-gray-800",
+    logo: "PCAI_Horizontal_RGB.svg",
+    website: "https://hpc.aicentre.dk/"
+  },
+  {
+  name: "Technical University of Denmark",
+  shortName: "DTU",
+  description: `
+    The Technical University of Denmark (DTU) includes the DTU Computing Center (DCC),
+    located within the Department of Applied Mathematics and Computer Science (DTU Compute).
+    
+    DCC provides centralized high-performance computing (HPC) services such as cluster hosting,
+    software stacks, storage, support, training, and consulting to students and researchers across the university.
+    
+    DTU's HPC curriculum, including the Machine Learning Operations (MLOps) course
+    taught by Associate Professor Nicki Skafte Detlefsen, focuses on scalable, reproducible, and automated ML workflows
+    and practical deployment practices.
+  `,
+  backgroundColor: "bg-white",
+  textColor: "text-gray-800",
+      logo: "DTU_Red_RGB.svg",
+    website: "https://www.hpc.dtu.dk/"
+},
+  {
+    name: "Danish Centre for AI Innovation",
+    shortName: "DCAI",
+    description: `
+      DCAI is home to Gefion, Denmark’s first supercomputer optimised for large-scale projects using AI.
+      
+      Gefion is a large-scale NVIDIA DGX SuperPOD. It comprises 191 NVIDIA DGX H100 systems for a total of 1,528 NVIDIA H100 Tensor Core GPUs.
+    `,
+    backgroundColor: "bg-white",
+    textColor: "text-gray-800",
+    logo: "DCAI.svg",
+    website: "https://dcai.dk/gefion"
+  },
+  // {
+  //   name: "University of Copenhagen",
+  //   shortName: "UCPH",
+  //   description: `
+  //     Denmark's oldest and largest university, conducting world-class research in artificial intelligence, computer science, and interdisciplinary studies.
+      
+  //     Fostering innovation and academic excellence through collaborative research and education.
+  //   `,
+  //   backgroundColor: "bg-white",
+  //   textColor: "text-gray-800",
+  //   logo: "UCPH.png",
+  //   website: "https://di.ku.dk/english"
+  // }
+];
+---
+
+<section id="collaborations" class="py-6 px-6 bg-gray-100 scroll-mt-20">
+  <div class="max-w-7xl mx-auto relative p-5">
+    
+    <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">
+      Collaborations
+    </h2>
+
+    
+    <div class="flex justify-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        {collaborations.map((collaboration) => (
+          <div class="w-64 h-24 group relative">
+            {collaboration.website ? (
+              <a href={collaboration.website} target="_blank" rel="noopener noreferrer" class="block h-full">
+                <div class="h-full card text-center border-0 bg-light">
+                  <div class={`
+                    card-body flex items-center justify-center py-2 px-3 cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg border border-gray-200 h-full
+                    ${collaboration.backgroundColor} 
+                    ${collaboration.textColor}
+                  `}>
+                    <img 
+                      src={`/src/assets/logos/${collaboration.logo}`} 
+                      alt={collaboration.name}
+                      class="img-fluid max-h-14 w-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <div class="h-full card text-center border-0 bg-light">
+                <div class={`
+                  card-body flex items-center justify-center py-2 px-3 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg border border-gray-200 h-full
+                  ${collaboration.backgroundColor} 
+                  ${collaboration.textColor}
+                `}>
+                  <img 
+                    src={`/src/assets/logos/${collaboration.logo}`} 
+                    alt={collaboration.name}
+                    class="img-fluid max-h-14 w-auto object-contain"
+                  />
+                </div>
+              </div>
+            )}
+            
+            <!-- Hover tooltip with collaboration information -->
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 pointer-events-none z-10">
+              <div class="bg-gray-900 text-white p-3 rounded-lg shadow-xl w-80">
+                <h3 class="font-semibold mb-2 text-white text-sm uppercase tracking-wide">{collaboration.name}</h3>
+                <div class="text-gray-200 text-sm leading-relaxed space-y-2">
+                  {collaboration.description.split('\n\n').filter(para => para.trim()).map(paragraph => (
+                    <p class="my-0">
+                      {paragraph.trim().split('\n').map((line, index) => (
+                        <>
+                          {line}
+                          {index < paragraph.trim().split('\n').length - 1 && <br />}
+                        </>
+                      ))}
+                    </p>
+                  ))}
+                </div>
+                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

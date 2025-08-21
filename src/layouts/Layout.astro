@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Announcement from "../components/Announcement.astro";
+
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = 'home' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Supercomputer Workshop</title>
+	</head>
+	<body>
+		<div class="min-h-screen bg-gray-900 p-8">
+			<div class="max-w-5xl mx-auto bg-white border border-gray-200 shadow-lg">
+				<Announcement />
+				<Header currentPage={currentPage} />
+				<slot />
+			</div>
+		</div>
+	</body>
+</html>

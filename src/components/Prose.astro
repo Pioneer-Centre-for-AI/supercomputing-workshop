@@ -1,0 +1,24 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+  size?: 'sm' | 'base' | 'lg' | 'xl';
+}
+
+const { variant = 'light', size = 'base' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'prose-sm',
+  base: 'prose',
+  lg: 'prose-lg',
+  xl: 'prose-xl'
+};
+---
+<div
+  class={`
+    ${sizeClasses[size]} ${variant === 'dark' ? 'prose-invert' : ''}
+    prose-h1:font-bold prose-h1:text-xl
+    prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
+    prose-headings:underline
+  `}>
+  <slot />
+</div>

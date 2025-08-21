@@ -1,0 +1,105 @@
+---
+---
+
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  <div class="px-6 py-4">
+    <div class="flex items-center justify-between">
+
+      <div class="flex flex-col items-start space-y-1">
+        <a href="#top" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-snow3 flex-shrink-0" viewBox="0 0 16 16">
+            <path d="M8 7.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1"/>
+            <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.51l-2.053-1.232-1.348.778-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.883-.237a.5.5 0 1 1 .258-.966l1.85.495L5 9.155v-2.31l-1.4-.808-1.85.495a.5.5 0 1 1-.259-.966l.884-.237-1.12-.646a.5.5 0 0 1 .5-.866l1.12.646-.237-.883a.5.5 0 1 1 .966-.258l.495 1.849 1.348.778L7.5 4.717v-1.51L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.51l2.053 1.232 1.348-.778.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-1.4.808v2.31l1.4.808 1.849-.495a.5.5 0 1 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-1.348-.778L8.5 11.283v1.51l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5m2-6.783V6.783l-2-1.2-2 1.2v2.434l2 1.2z"/>
+          </svg>
+          <span class="font-bold text-xl text-black">Supercomputer Workshop</span>
+        </a>
+        <div class="text-xs text-gray-500 ml-8">
+          <a href="https://eurips.cc/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-700 transition-colors">
+            EurIPS · Copenhagen · 2025
+          </a>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex items-center space-x-8">
+        <a 
+          href="#program" 
+          class="text-black hover:text-gray-600 transition-colors"
+        >
+          Program
+        </a>
+        <a 
+          href="#organizers" 
+          class="text-black hover:text-gray-600 transition-colors"
+        >
+          Organizers
+        </a>
+      </nav>
+
+      <button 
+        id="mobile-menu-button"
+        class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+        aria-label="Toggle mobile menu"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-gray-200">
+      <nav class="flex flex-col space-y-3 pt-4">
+        <a 
+          href="#program" 
+          class="text-black hover:text-gray-600 transition-colors py-2 px-3 rounded-md hover:bg-gray-50"
+        >
+          Program
+        </a>
+        <a 
+          href="#organizers" 
+          class="text-black hover:text-gray-600 transition-colors py-2 px-3 rounded-md hover:bg-gray-50"
+        >
+          Organizers
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenuButton.innerHTML = `
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          `;
+        } else {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.innerHTML = `
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          `;
+        }
+      });
+      
+      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.innerHTML = `
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          `;
+        });
+      });
+    }
+  });
+</script>

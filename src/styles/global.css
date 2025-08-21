@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-p1-hero: #B9C1CF;
+  --color-p1-element: #D8DCE2;
+  --color-p1-light: #F5F6FA;
+  --color-p1-dark: #4B5063;
+}
