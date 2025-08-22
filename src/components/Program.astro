@@ -17,43 +17,43 @@ const program = [
   },
   {
     time: "09:45 – 10:00",
-    session: "Supercomputer B: System Presentation",
-    speakers: "System Representative"
+    session: "UPPMAX (NAISS): Systems Presentation",
+    speakers: "Erik Lindahl"
   },
   {
     time: "10:00 – 10:15",
-    session: "Use Case from Supercomputer B",
-    speakers: "Researcher"
+    session: "Use Case from UPPMAX HPCs",
+    speakers: "Magnus Sahlgren"
   },
   {
     time: "10:15 – 10:30",
-    session: "Supercomputer C: System Presentation",
-    speakers: "System Representative"
+    session: "SIGMA2 (NRIS): Systems Presentation",
+    speakers: "Abdulrahman Azab Mohamed"
   },
   {
     time: "10:30 – 10:45",
-    session: "Use Case from Supercomputer C",
-    speakers: "Researcher"
+    session: "Use Case from SIGMA2 HPCs",
+    speakers: "Abdulrahman Azab Mohamed"
   },
   {
     time: "10:45 – 11:00",
-    session: "Supercomputer D: System Presentation",
-    speakers: "System Representative"
+    session: "LUMI (EuroHPC): System Presentation and Use Case",
+    speakers: "Iacopo Colonnelli"
   },
   {
     time: "11:00 – 11:15",
-    session: "Use Case from Supercomputer D",
-    speakers: "Researcher"
+    session: "Hendrix and LUMI: System Presentation and Use Case",
+    speakers: "Hui Zhang"
   },
   {
     time: "11:15 – 11:30",
-    session: "Supercomputer E: System Presentation",
-    speakers: "System Representative"
+    session: "NGC: System Presentation and Use Case",
+    speakers: "Jakob Ambsdorf"
   },
   {
     time: "11:30 – 11:45",
-    session: "Use Case from Supercomputer E",
-    speakers: "Researcher"
+    session: "AAU HPC and LUMI: Use Case",
+    speakers: "Zheng-Hua Tan"
   },
   {
     time: "11:45 – 12:45",
@@ -61,22 +61,22 @@ const program = [
     speakers: "—"
   },
   {
-    time: "12:45 – 13:30",
+    time: "12:45 – 14:00",
     session: "Group Discussions (in breakout groups)",
     speakers: "All participants"
   },
   {
-    time: "13:30 – 14:00",
+    time: "14:00 – 14:45",
     session: "Plenum: Collection of Feedback",
     speakers: "Moderator"
   },
   {
-    time: "14:00 – 15:00",
+    time: "14:45 – 15:45",
     session: "Panel Discussion: Future of Supercomputing in Europe",
     speakers: "Panelists + Moderator"
   },
   {
-    time: "15:00 – 15:15",
+    time: "15:45 – 16:00",
     session: "Closing Remarks",
     speakers: "Workshop Chair"
   }
@@ -106,7 +106,7 @@ const program = [
               </td>
               <td class="border border-gray-300 px-4 py-3 text-sm text-gray-700">
                 {item.session.includes("Future of Supercomputing in Europe") 
-                  ? item.session.replace("Future of Supercomputing in Europe", "<em>Future of Supercomputing in Europe</em>")
+                  ? item.session.replace("Future of Supercomputing in Europe", "Future of Supercomputing in Europe")
                   : item.session
                 }
               </td>
