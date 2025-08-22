@@ -4,26 +4,89 @@ import Header from "../components/Header.astro";
 import Announcement from "../components/Announcement.astro";
 
 interface Props {
-  currentPage?: string;
+  title?: string;
+  description?: string;
+  keywords?: string;
 }
 
-const { currentPage = 'home' } = Astro.props;
+const { 
+  title = 'Supercomputing Workshop 2025',
+  description = 'Join the discussion between HPC providers and AI/ML researchers on leveraging Europe\'s supercomputing infrastructure. Explore challenges, opportunities, and recommendations for a sustainable European supercomputing ecosystem.',
+  keywords = 'supercomputing, HPC, AI, machine learning, Europe, infrastructure, workshop, high performance computing, artificial intelligence, research, quantum computing, edge computing, neuromorphic computing'
+} = Astro.props;
+
+// Get values from Astro config
+const siteUrl = import.meta.env.SITE;
+const basePath = import.meta.env.BASE_URL;
+
+if (!siteUrl || !basePath) {
+  throw new Error('Site URL and base path must be configured in astro.config.mjs');
+}
+
+const fullUrl = siteUrl + basePath;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/supercomputing-workshop/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="Supercomputing Workshop 2025" />
+		<meta name="robots" content="index, follow" />
+		<meta name="language" content="English" />
+		<meta name="revisit-after" content="7 days" />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href={basePath + "/favicon.svg"} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={fullUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="Supercomputing Workshop 2025" />
+		<meta property="og:locale" content="en_US" />
+		
+		<!-- Additional SEO Meta Tags -->
 		<meta name="generator" content={Astro.generator} />
-		<title>Supercomputing Workshop</title>
+		
+		<!-- Schema.org structured data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "Supercomputing Workshop 2025",
+			"description": "Workshop fostering discussion between HPC providers and AI/ML researchers on Europe's supercomputing infrastructure",
+			"startDate": "2025",
+			"eventType": "Workshop",
+			"organizer": {
+				"@type": "Organization",
+				"name": "Supercomputing Workshop 2025"
+			},
+			"audience": {
+				"@type": "Audience",
+				"audienceType": "Researchers, HPC providers, AI/ML professionals"
+			},
+			"keywords": "supercomputing, HPC, AI, machine learning, Europe, infrastructure"
+		}
+		</script>
+		
+		<!-- Sitemap -->
+		<link rel="sitemap" href={basePath + "/sitemap-index.xml"} />
+		
+
 	</head>
 	<body>
 		<div class="min-h-screen bg-gray-900 p-0 sm:p-4 md:p-6 lg:p-8">
 			<div class="w-full max-w-5xl mx-auto bg-white border border-gray-200 shadow-lg">
 				<Announcement />
-				<Header currentPage={currentPage} />
+				<Header />
 				<slot />
 			</div>
 		</div>
